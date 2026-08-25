@@ -127,7 +127,7 @@ static void exploit(void)
     check_syscall(firewall_fd, "open(/dev/firewall)");
 
     size_t rule_index =
-        add_rule("192.168.1.1 255.255.255.0 1024 0");
+        add_rule("10.10.10.3 10.10.10.2 5000 0");
 
     delete_rule(rule_index);
 
